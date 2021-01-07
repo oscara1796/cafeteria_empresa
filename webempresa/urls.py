@@ -22,6 +22,7 @@ urlpatterns = [
     path('', include('services.urls')),
     path('', include('blog.urls')),
     path('', include('Pages.urls')),
+    path('', include('contact.urls')),
     #Admin Path
     path('admin/', admin.site.urls),
 ]

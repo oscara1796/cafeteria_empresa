@@ -18,7 +18,3 @@ def services(request):
 def store(request):
 
     return render(request, "core/visitanos.html")
-
-def contact(request):
-
-    return render(request, "core/contact.html")
