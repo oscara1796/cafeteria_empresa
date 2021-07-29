@@ -26,7 +26,7 @@ SECRET_KEY = '!eh7#kirs$lz#t3!jnim6_b0#qn!w!czi+6h-==9%nnxve$4#('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['cafeteria-oscar.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -141,6 +142,7 @@ STATICFILES_FINDERS=[
 ]
 
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+STATIC_ROOT= BASE_DIR / 'staticfiles'
 MEDIA_URL='/media/'
 
 
@@ -162,3 +164,10 @@ EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = 'e284bb4379d3f4'
 EMAIL_HOST_PASSWORD = 'cf89b0d3ff9a1e'
 EMAIL_PORT = '2525'
+
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+if os.getcwd() == '/app':
+    DEBUG = False
